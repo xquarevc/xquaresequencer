@@ -16,6 +16,7 @@ let rdapBootstrap = null;
 async function rdapBase(tld) {
   if (!rdapBootstrap) {
     const r = await fetch('https://data.iana.org/rdap/dns.json', { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error(`RDAP bootstrap unreachable (HTTP ${r.status}); outbound access to data.iana.org may be blocked`);
     rdapBootstrap = (await r.json()).services;
   }
   const svc = rdapBootstrap.find(([tlds]) => tlds.includes(tld));
