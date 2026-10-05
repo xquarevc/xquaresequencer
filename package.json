@@ -1,0 +1,22 @@
+{
+  "name": "xquaresequencer",
+  "version": "1.0.0",
+  "description": "Self-hosted cold email outreach platform: mailboxes, domains, campaigns, drip sequences, unified inbox, wallet.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --no-warnings src/server.js",
+    "dev": "node --no-warnings --watch src/server.js",
+    "test": "node --no-warnings --test test/e2e.test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "imapflow": "^2.2.5",
+    "mailparser": "^3.9.36",
+    "nodemailer": "^10.0.15"
+  }
+}
